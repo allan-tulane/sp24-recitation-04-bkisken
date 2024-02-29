@@ -36,7 +36,7 @@ To use this function to count words, you'll need to implement your own `map_f` a
 
 4. Assume that a word `w` appears `n` times. What is the **work** and **span** of `word_count_reduce` for this word, assuming a parallel implementation of the `reduce` function?
 
-**Enter answer here**
+The Work is O(n) and the Span is O(log n)
 
 
 5. Why are we going through all this trouble? Couldn't I just use this function to count words?
@@ -52,8 +52,7 @@ for doc in docs:
 
 What is the problem that prevents us from easily parallelizing this solution?
 
-**Enter answer here**
-
+Each one of the word counts is dependent on the previous word count, this means they can't easily be parallelized without synchronizing them. The map reduced framework is desiged for distributed and parallel processing of large datasets. 
 
 ## Part 2: Sentiment analysis
 
